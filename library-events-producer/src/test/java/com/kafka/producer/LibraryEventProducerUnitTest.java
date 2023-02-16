@@ -15,7 +15,6 @@ import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.support.SendResult;
 import org.springframework.util.concurrent.SettableListenableFuture;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
