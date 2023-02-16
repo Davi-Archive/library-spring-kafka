@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.kafka.domain.LibraryEvent;
+import com.kafka.domain.LibraryEventType;
 import com.kafka.producer.LibraryEventProducer;
 
 import lombok.extern.slf4j.Slf4j;
+
 @Slf4j
 @RestController
 public class LibraryEventsController {
@@ -25,10 +27,10 @@ public class LibraryEventsController {
 	    @RequestBody LibraryEvent libraryEvent)
 	    throws JsonProcessingException {
 
-	//SendResult<Integer, String> sendResult =
-	libraryEventProducer
-		.sendLibraryEvent_Approach2(libraryEvent);
-	//log.info("Send Result is {}", sendResult.toString());
+	// SendResult<Integer, String> sendResult =
+	libraryEvent.setLibraryEventType(LibraryEventType.NEW);
+	libraryEventProducer.sendLibraryEvent_Approach2(libraryEvent);
+	// log.info("Send Result is {}", sendResult.toString());
 
 	return ResponseEntity.status(HttpStatus.CREATED)
 		.body(libraryEvent);
