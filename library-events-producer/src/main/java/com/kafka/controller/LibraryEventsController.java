@@ -25,9 +25,10 @@ public class LibraryEventsController {
 	    @RequestBody LibraryEvent libraryEvent)
 	    throws JsonProcessingException {
 
-	SendResult<Integer, String> sendResult = libraryEventProducer
-		.sendLibraryEventSynchronous(libraryEvent);
-	log.info("Send Result is {}", sendResult.toString());
+	//SendResult<Integer, String> sendResult =
+	libraryEventProducer
+		.sendLibraryEvent_Approach2(libraryEvent);
+	//log.info("Send Result is {}", sendResult.toString());
 
 	return ResponseEntity.status(HttpStatus.CREATED)
 		.body(libraryEvent);
