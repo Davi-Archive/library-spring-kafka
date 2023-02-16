@@ -1,4 +1,4 @@
-
+#producer
 spring:
   kafka:
     template:
