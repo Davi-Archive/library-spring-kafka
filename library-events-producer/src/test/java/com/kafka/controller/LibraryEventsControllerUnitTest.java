@@ -48,5 +48,21 @@ class LibraryEventsControllerUnitTest {
 		.andExpect(status().isCreated());
 	// then
     }
+    
+    @Test
+    void postLibraryEvent_4xx() throws Exception {
+	// given
+
+	LibraryEvent libraryEvent = LibraryEvent.builder()
+		.libraryEventId(null).book(null).build();
+
+	String json = objectMapper.writeValueAsString(libraryEvent);
+
+	// when
+	mockMvc.perform(post("/v1/libraryevent").content(json)
+		.contentType(MediaType.APPLICATION_JSON))
+		.andExpect(status().is4xxClientError());
+	// then
+    }
 
 }

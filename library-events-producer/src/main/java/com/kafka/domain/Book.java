@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 public class Book {
+    
     @NotNull
     private Integer bookId;
     @NotBlank
