@@ -13,6 +13,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -63,6 +64,7 @@ class LibraryEventsControllerIntegrationTest {
     }
 
     @Test
+    @Timeout(5)
     void postLibraryEvent() {
 	// given
 	Book book = Book.builder().bookId(123).bookAuthor("OkayChamp")
